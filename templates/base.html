@@ -1,0 +1,84 @@
+<!DOCTYPE html lang="en">
+<!-- /ht Paul Irish - http://front.ie/j5OMXi -->
+<!--[if lt IE 7 ]> <html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<title>Gunnar Gissel - homepage</title>
+
+	<meta name="description" content="Gunnar Gissel's personal website - sort of an online business card and holding pen for projects">
+	<meta name="author" content="{{ Author }}">
+
+	<!-- /ht Andy Clarke - http://front.ie/lkCwyf -->
+	<meta http-equiv="cleartype" content="on">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="icon" type="image/ico" href="/images/miniG.ico"/>
+	<link rel="apple-touch-icon" href="/images/tinyG.png">
+
+	<!-- /ht Jeremy Keith - http://front.ie/mLXiaS -->
+	<link rel="stylesheet" href="{{ SITEURL }}/theme/css/base_global.css" media="all">
+	<link rel="stylesheet" href="{{ SITEURL }}/theme/css/base_layout.css" media="all and (min-width: 33.236em)">
+	<!-- 30em + (1.618em * 2) = 33.236em / Eliminates potential of horizontal scrolling in most cases -->
+
+	<!--[if (lt IE 9) & (!IEMobile)]>
+	<link rel="stylesheet" href="{{ SITEURL }}/theme/css/layout.css" media="all">
+	<![endif]-->
+
+	<script src="js/libs/modernizr-1.7.min.js"></script>
+	{% block script %}{% endblock script %}
+</head>
+
+<body>
+  
+  <div id="container" class="cf">
+    
+    <header class="site-wide">
+		<h1>
+			<span class="large-title-text">			
+				<a href = "{{ SITEURL }}"  media="all and (min-width: 33.236em)">
+				<img src="{{ SITEURL }}/theme/images/bigLogo.png"></img>&nbsp{{ SITENAME }}</a>
+			</span>
+			<span class="small-title-text">			
+				<a href = "{{ SITEURL }}"  media="all and (min-width: 33.236em)">{{ SITENAME }}</a>
+			</span>
+		</h1> 
+	</header>
+    
+    <div id="main" role="main">
+		<div class="lefty">			
+			<div style="height:10px; background:fff;"></div>	
+			<nav>
+				<ul>
+					{% for page in pages %}
+						<li><a href="{{ SITEURL }}/{{ page.url }}" title="{{ page.summary|striptags }}" rel="section">{{ page.title }}</a></li>
+					{% endfor %}
+					<li><a href="{{ SITEURL }}/categories.html" rel="toc">Categories</a></li>
+					<li><a href="{{ SITEURL }}/tags.html" rel="toc">Tag Cloud</a></li>
+				</ul>
+			</nav>			
+		</div>
+		<div class="righty"  itemscope itemtype="http://schema.org/Blog">
+			{% block content %}{% endblock content %}
+		</div>
+	<!--main div-->
+	</div>
+    
+    <footer>
+		<div style="float:left; width:58%; text-align:right;">
+			<div style="height:15px;"></div>
+			<span class="legal-stuff">Copyright 2014, by Gunnar Gissel, all rights reserved! &nbsp</span>
+		</div>
+		<div style="float:left; width:50px;">
+			<a rel="home" href="http://gunnargissel.com"><img src="http://gunnargissel.com/images/tinyG.png"  style="margin:3px 0px 0px 0px;" /><a>
+		</div>
+	</footer>
+    
+  </div>
+
+</body>
+
+</html>
