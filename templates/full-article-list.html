@@ -1,0 +1,11 @@
+{% if DEFAULT_PAGINATION %}
+	{% include 'pagination.html' %}
+	{% for article in articles_page.object_list %}
+		{% include 'article-layout.html' %}
+	{% endfor %}
+	{% include 'pagination.html' %}
+{% else %}
+	{% for article in articles %}
+		{% include 'article-layout.html' %}
+	{% endfor %}
+{% endif %}	

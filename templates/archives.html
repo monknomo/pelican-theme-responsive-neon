@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+	{% for article in dates %}
+		<article itemscope itemtype="http://schema.org/Article"> 
+			<header class="article">
+				<b><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}"><span  itemprop="name">{{ article.title }}</span></a></b>
+				<span itemprop="author" itemscope itemtype="http://schema.org/Person">
+					<a href="{{ SITEURL }}/{{ article.author.url }}" rel="author"><span itemprop="name">{{ article.author }}</span></a>
+				</span>
+				<span itemscope itemtype="http://schema.org/Date"><span itemprop="dateCreated">{{article.locale_date}}</span></span>
+			</header>
+			<div  itemprop="articleBody" class="article-content">
+				{{ article.summary }}
+			</div>
+		</article>	
+	{% endfor %}
+{% endblock content %}
+		

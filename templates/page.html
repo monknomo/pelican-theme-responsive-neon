@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+	<article itemscope itemtype="http://schema.org/Article"> 
+		<header class="article">
+			<h1><a href="{{ SITEURL }}/{{ page.url }}" rel="bookmark" title="Permalink to {{ page.title|striptags }}"><span  itemprop="name">{{ page.title }}</span></a></h1>
+		</header>
+		<div  itemprop="articleBody" class="article-content">
+			{{ page.content }}
+		</div>
+	</article>	
+
+{% endblock content %}

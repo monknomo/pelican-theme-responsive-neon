@@ -1,0 +1,30 @@
+<article itemscope itemtype="http://schema.org/BlogPosting"> 
+	<header class="article">
+		<h1><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}"><span  itemprop="name">{{ article.title }}</span></a></h1>
+		
+			<h3>
+				<span itemprop="author" itemscope itemtype="http://schema.org/Person">
+					<a href="{{ SITEURL }}/{{ article.author.url }}" rel="author" itemprop="name">{{ article.author }}</a>
+				</span>
+				- <a href="{{ SITEURL }}/{{ article.category.url }}" rel="category"><span itemprop="articleSection">{{ article.category }}</span></a>
+			</h3>
+		
+		<time itemprop="dateCreated" datetime="{{ article.date.isoformat() }}"/>
+		{% if article.modified %}
+			<time itemprop="dateModified" datetime="{{ article.modified.isoformat() }}"/>
+		{% endif %}
+	</header>
+	<div  itemprop="articleBody" class="article-content">
+		{{ article.content }}
+	</div>
+	<nav itemprop="keywords">
+	{% for tag in article.tags %}
+		{% if loop.last %}
+			<a href="{{ SITEURL }}/{{ tag.url }}" rel="tag" title="Articles relating to {{ tag }}">{{ tag }}</a>
+		{% else %}
+			<a href="{{ SITEURL }}/{{ tag.url }}" rel="tag" title="Articles relating to {{ tag }}">{{ tag }}</a>,&nbsp
+		{% endif %}
+		
+	{% endfor %}
+	</nav>
+</article>	

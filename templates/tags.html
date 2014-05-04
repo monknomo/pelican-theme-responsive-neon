@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block script %}
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+	<script src="theme/js/jquery.tagcloud.js"></script>
+	<script>
+	$.fn.tagcloud.defaults = {
+	  size: {start: .65, end: 2, unit: 'em'},
+	  color: {start: '#87EA00', end: '#D8005F'}
+	};
+
+	$(function () {
+	  $('#tagcloud a').tagcloud();
+	});
+	</script>
+{% endblock script %}
+
+{% block content %}
+	<div id="tagcloud">
+		{% for tag, articles in tags %}
+			<a href="{{ SITEURL }}/{{ tag.url }}" rel="{{ articles|count }}" title="Articles relating to {{ tag }}">{{ tag }}</a>
+		{% endfor %}
+	</div>
+{% endblock content %}
+
